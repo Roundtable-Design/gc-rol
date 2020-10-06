@@ -76,6 +76,8 @@ export default function Canvas() {
 		const words = string.split(" "),
 			lines = [];
 
+		context.fillStyle = "white";
+
 		context.save();
 		if (textAlign) context.textAlign = textAlign;
 		context.font = `normal normal ${fontWeight} ${
@@ -112,25 +114,8 @@ export default function Canvas() {
 		const { width, height } = this.canvasElement;
 		const { context } = this;
 
-		const grad = context.createLinearGradient(
-			0,
-			height / 4,
-			width * 1.5,
-			height
-		);
-		colorStops.forEach((color, index) => {
-			grad.addColorStop(index / (colorStops.length - 1), color);
-		});
-
-		context.save();
-
-		context.fillStyle = grad;
-		context.fillRect(0, 0, width, height);
-
-		context.restore();
-
 		await this.image(
-			require("./assets/noise.png"),
+			require("./assets/gradient.jpg"),
 			0,
 			0,
 			width / this.scale,
@@ -140,3 +125,37 @@ export default function Canvas() {
 		return this;
 	};
 }
+
+// Old gradient code
+
+// this.gradient = async (colorStops) => {
+// 	const { width, height } = this.canvasElement;
+// 	const { context } = this;
+
+// 	const grad = context.createLinearGradient(
+// 		0,
+// 		height / 4,
+// 		width * 1.5,
+// 		height
+// 	);
+// 	colorStops.forEach((color, index) => {
+// 		grad.addColorStop(index / (colorStops.length - 1), color);
+// 	});
+
+// 	context.save();
+
+// 	context.fillStyle = grad;
+// 	context.fillRect(0, 0, width, height);
+
+// 	context.restore();
+
+// 	await this.image(
+// 		require("./assets/noise.png"),
+// 		0,
+// 		0,
+// 		width / this.scale,
+// 		height / this.scale
+// 	);
+
+// 	return this;
+// };
