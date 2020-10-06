@@ -1,20 +1,20 @@
-import React from "react";
-
-import Field from "../../components/Field";
-import { Redirect } from "react-router-dom";
+import { Logo, Wrapper } from "../../components/styles";
 import {
 	getPractices,
-	isValidResults,
-	setField,
 	isCompletedResults,
 	isValidField,
+	isValidResults,
+	setField,
 } from "../../functions";
-import Button from "../../components/Button";
-import { useHistory } from "react-router-dom";
-import { Wrapper, Logo } from "../../components/styles";
+
 import Background from "../../components/Background";
+import Button from "../../components/Button";
 import { ButtonWrapper } from "./styles";
+import Field from "../../components/Field";
+import React from "react";
+import { Redirect } from "react-router-dom";
 import animateScrollTo from "animated-scroll-to";
+import { useHistory } from "react-router-dom";
 
 const Review = ({ results = [], onResultsChange }) => {
 	const history = useHistory();
@@ -51,20 +51,24 @@ const Review = ({ results = [], onResultsChange }) => {
 		<Background>
 			<Wrapper>
 				<Logo />
-				{getPractices(results).map(({ value, label, title }, index) => {
-					return (
-						<Field
-							onChange={(value) =>
-								handleFieldChange({ label, value })
-							}
-							value={value}
-							label={title}
-							index={index + 1}
-							key={`review-field-${index}`}
-							ref={(ref) => addFieldRef(ref)}
-						/>
-					);
-				})}
+				{getPractices(results).map(
+					({ value, body, title, placeholder }, index) => {
+						return (
+							<Field
+								onChange={(value) =>
+									handleFieldChange({ title, value })
+								}
+								value={value}
+								body={body}
+								title={title}
+								placeholder={placeholder}
+								index={index + 1}
+								key={`review-field-${index}`}
+								ref={(ref) => addFieldRef(ref)}
+							/>
+						);
+					}
+				)}
 				<ButtonWrapper>
 					<Button onClick={handleSubmit}>Create Rule of Life</Button>
 				</ButtonWrapper>

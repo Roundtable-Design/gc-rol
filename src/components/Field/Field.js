@@ -1,18 +1,19 @@
 import {
+	Body,
 	Colored,
 	Indicator,
 	Input,
-	Number,
 	Sub,
-	Text,
+	Title,
 	ValidationWrapper,
+	Wrapper,
 } from "./styles";
 
 import React from "react";
 import { isValidField } from "../../functions";
 
 export const Field = React.forwardRef(
-	({ index, label, error, value, onChange }, ref) => {
+	({ index, title, body, placeholder, value, onChange }, ref) => {
 		const invalid = !isValidField(value);
 		const [focused, setFocused] = React.useState(false);
 		const [visited, setVisited] = React.useState(false);
@@ -28,16 +29,18 @@ export const Field = React.forwardRef(
 		};
 
 		return (
-			<React.Fragment>
-				<Number>{index}</Number>
-				<Text>{label}</Text>
+			<Wrapper>
+				<Title>
+					{index}. {title}
+				</Title>
+				<Body>{body}</Body>
 				<Input
 					ref={ref}
 					onFocus={handleFocus}
 					onBlur={handleBlur}
 					value={value}
 					onChange={handleChange}
-					placeholder="Type your answer here..."
+					placeholder={placeholder}
 				/>
 				<ValidationWrapper>
 					{focused && (
@@ -60,7 +63,7 @@ export const Field = React.forwardRef(
 						</Sub>
 					)}
 				</ValidationWrapper>
-			</React.Fragment>
+			</Wrapper>
 		);
 	}
 );
