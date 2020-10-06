@@ -6,8 +6,8 @@ const format = {
 	},
 
 	renderLogo: async (canvas) => {
-		const width = 71.72;
-		const height = 32;
+		const width = 71;
+		const height = 54;
 
 		await canvas.image(
 			require("./assets/logo.png"),
@@ -35,8 +35,8 @@ const format = {
 		let offsetTop = 78,
 			offsetLeft = 20;
 
-		sections.forEach(({ label, practices }) => {
-			canvas.text(label, {
+		sections.forEach(({ title, practices }) => {
+			canvas.text(title, {
 				x: offsetLeft,
 				y: offsetTop,
 				fontFamily: "starling, serif",
@@ -47,33 +47,33 @@ const format = {
 
 			offsetTop += 19;
 
-			practices.forEach(({ label, value }) => {
+			practices.forEach(({ title, value }) => {
 				// Human Resources
 				canvas.hr(offsetLeft, offsetTop);
 				offsetTop += 6;
 
-				// label
-				canvas.text(label, {
+				// title
+				canvas.text(title, {
 					x: offsetLeft,
 					y: offsetTop,
 					fontFamily: "neue-haas-grotesk-display, sans-serif",
 					fontWeight: 300,
-					fontSize: 24,
-					lineHeight: 27,
+					fontSize: 22,
+					lineHeight: 25,
 				});
 
 				// Value
 				canvas.text(value, {
-					x: 192,
+					x: 162,
 					y: offsetTop,
-					maxWidth: 162,
-					fontFamily: "neue-haas-grotesk-display, times",
+					maxWidth: 192,
+					fontFamily: "neue-haas-grotesk-display, sans-serif",
 					fontWeight: 500,
-					fontSize: 12,
+					fontSize: 11,
 					lineHeight: 14,
 				});
 
-				offsetTop += 45;
+				offsetTop += 39;
 			});
 
 			offsetTop += 5;
@@ -87,7 +87,8 @@ const format = {
 		await format.renderGradient(canvas, theme);
 		await format.renderLogo(canvas);
 		format.renderPractices(canvas, practices);
-		format.renderFooter(canvas);
+
+		// format.renderFooter(canvas);
 
 		return canvas.canvasElement.toDataURL("image/png", 1);
 	},
