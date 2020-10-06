@@ -8,12 +8,12 @@ export const getPractices = (fields) => {
 	return flat;
 };
 
-export const setField = (results, { label, value }) => {
+export const setField = (results, { title, value }) => {
 	const updatedResults = [...results];
 
 	for (const [outer, section] of updatedResults.entries()) {
 		let inner = section.practices.findIndex(
-			(practice) => practice.label === label
+			(practice) => practice.title === title
 		);
 
 		if (inner > -1) {
