@@ -14,7 +14,7 @@ export const Background = styled.div`
 export const Wrapper = styled(DefaultWrapper)`
 	&&& {
 		grid-template-columns: 100%;
-		max-width: 500px;
+		/* max-width: 500px; */
 
 		${breakpoint("lg")`
 		width: auto;
