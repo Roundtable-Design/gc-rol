@@ -5,6 +5,17 @@ const format = {
 		await canvas.gradient(theme);
 	},
 
+	renderImage: async (canvas, src) => {
+		await canvas.image(
+			src,
+			0,
+			0,
+			canvas.canvasElement.width / canvas.scale,
+			canvas.canvasElement.height / canvas.scale,
+			{ blendMode: "multiply" }
+		);
+	},
+
 	renderLogo: async (canvas) => {
 		const width = 71;
 		const height = 54;
@@ -14,8 +25,8 @@ const format = {
 			canvas.canvasElement.width / (canvas.scale * 2) - width / 2,
 			20,
 			width,
-			height,
-			{ blendMode: "multiply" }
+			height
+			// { blendMode: "multiply" }
 		);
 	},
 
@@ -80,12 +91,19 @@ const format = {
 		});
 	},
 
-	toImage: async ({ practices, theme, constraints }) => {
+	toImage: async ({ practices, theme, textColor, constraints }) => {
 		const [width, height] = constraints;
 
 		const canvas = new Canvas().init(width, height);
-		await format.renderGradient(canvas, theme);
+
+		canvas.canvasElement.getContext("2d").fillStyle = textColor;
+		canvas.canvasElement.getContext("2d").strokeStyle = textColor;
+
+		if (Array.isArray(theme)) await format.renderGradient(canvas, theme);
+		else await format.renderImage(canvas, theme);
+
 		await format.renderLogo(canvas);
+
 		format.renderPractices(canvas, practices);
 
 		// format.renderFooter(canvas);

@@ -1,3 +1,5 @@
+import arrow from "../../assets/arrow.svg";
+import arrowBlack from "../../assets/arrow-black.svg";
 import styled from "styled-components";
 
 export const Text = styled.span`
@@ -31,18 +33,29 @@ export const Wrapper = styled.button`
 		border-color: rgba(255, 255, 255, 1);
 
 		${Text} {
-			margin-right: 20px;
+			${({ noAnimate }) => !noAnimate && `margin-right: 20px;`}
 		}
 	}
 `;
 
-export const Arrow = styled.img.attrs({
-	src: require("../../assets/arrow.svg"),
-})`
-	width: 19px;
-`;
+export const Arrow = styled.div`
+	background-image: url("${({ dark }) => (dark ? arrowBlack : arrow)}");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
 
-export const DownArrow = styled(Arrow)`
-	transform-origin: center;
+	${({ downArrow }) =>
+		downArrow
+			? `
+			transform-origin: 6px 10px;
 	transform: rotate(90deg);
+	
+	
+`
+			: `
+	height: 12px;
+`}
 `;

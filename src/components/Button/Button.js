@@ -8,12 +8,22 @@ export const Button = ({
 	type,
 	className,
 	downArrow,
-	...props
+	dark,
 }) => {
 	return (
-		<Wrapper className={className} onClick={onClick} type={type} {...props}>
+		<Wrapper
+			className={className}
+			onClick={onClick}
+			type={type}
+			dark={dark}
+			noAnimate={downArrow}
+		>
 			<Text>{text}</Text>
-			{downArrow ? <DownArrow /> : <Arrow />}
+			<Arrow
+				downArrow={downArrow}
+				style={{ height: "20px !important " }}
+				dark={dark}
+			/>
 		</Wrapper>
 	);
 };

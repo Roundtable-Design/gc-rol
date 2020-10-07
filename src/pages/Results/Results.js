@@ -18,6 +18,7 @@ import React from "react";
 import Spinner from "../../components/Spinner";
 import ThemeChooser from "../../components/ThemeChooser";
 import constants from "../../constants";
+import devices from "../../data/devices";
 import format from "../../format";
 import theme from "../../theme";
 import themes from "../../data/themes";
@@ -25,19 +26,21 @@ import themes from "../../data/themes";
 export const Results = ({ results, onImageLoaded, image }) => {
 	const history = useHistory();
 
-	const [selectedTheme, setSelectedTheme] = React.useState("sunset");
+	const [selectedDevice, setSelectedDevice] = React.useState(1);
+	const [selectedTheme, setSelectedTheme] = React.useState(0);
 
 	React.useEffect(() => {
 		(async function () {
 			let uri = await format.toImage({
 				practices: results,
-				theme: theme.themes[selectedTheme],
-				constraints: constants.constraints["iPhone 8"],
+				theme: themes[selectedTheme].gradient,
+				textColor: themes[selectedTheme].textColor,
+				constraints: devices[selectedDevice].constraints,
 			});
 
 			onImageLoaded(uri);
 		})();
-	}, [selectedTheme]);
+	}, [selectedTheme, selectedDevice]);
 
 	const handleDownload = () => {
 		history.push("/preview");
@@ -60,16 +63,22 @@ export const Results = ({ results, onImageLoaded, image }) => {
 					<DeviceWrapper>
 						<Mockup src={image} />
 					</DeviceWrapper>
-					<TextWrapper>
+					{/* <TextWrapper>
 						<Subtitle>Choose your device</Subtitle>
 
-						<DeviceChooser />
-					</TextWrapper>
+						<DeviceChooser
+							onChange={(index) => setSelectedDevice(index)}
+							selected={selectedDevice}
+						/>
+					</TextWrapper> */}
 					<TextWrapper>
 						<Subtitle>Choose your theme</Subtitle>
 
 						{/* Make this state controlled */}
-						<ThemeChooser />
+						<ThemeChooser
+							onChange={(index) => setSelectedTheme(index)}
+							selected={selectedTheme}
+						/>
 					</TextWrapper>
 					<TextWrapper>
 						<DownloadButtonWrapper>
