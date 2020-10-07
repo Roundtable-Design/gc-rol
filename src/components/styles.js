@@ -82,3 +82,14 @@ export const Subtitle = styled.h4`
 	${({ borderless }) =>
 		!borderless && `border-bottom: 1px solid ${theme.color.grey}`}
 `;
+
+export const Selectable = styled.div`
+	border-style: solid;
+	border-width: 2px;
+	border-color: transparent;
+	will-change: border-color;
+	transition: border-color 0.23s;
+
+	${({ selected }) =>
+		selected ? `border-color: #0085FF` : `cursor: pointer`};
+`;
