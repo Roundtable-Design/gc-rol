@@ -21,7 +21,11 @@ export const Wrapper = styled.button`
 	will-change: border-color;
 	outline: none;
 	padding: 0;
-	color: white;
+
+	span {
+		color: white;
+		${({ dark }) => dark && `color: black`};
+	}
 
 	&:hover {
 		border-color: rgba(255, 255, 255, 1);
@@ -38,8 +42,7 @@ export const Arrow = styled.img.attrs({
 	width: 19px;
 `;
 
-export const DownArrow = styled.img.attrs({
-	src: require("../../assets/down-arrow.svg"),
-})`
-	width: 9px;
+export const DownArrow = styled(Arrow)`
+	transform-origin: center;
+	transform: rotate(90deg);
 `;
