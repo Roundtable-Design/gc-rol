@@ -1,8 +1,7 @@
-import React from "react";
-
-import fields from "../fields";
-import Form from "../components/Form";
 import Field from "../components/Field";
+import Form from "../components/Form";
+import React from "react";
+import fields from "../data/fields";
 import { getPractices } from "../functions";
 
 const Start = () => {
