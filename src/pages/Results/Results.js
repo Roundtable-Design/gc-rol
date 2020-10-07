@@ -1,23 +1,26 @@
-import React from "react";
-
-import format from "../../format";
-import constants from "../../constants";
-import Spinner from "../../components/Spinner";
-import Button from "../../components/Button";
-import { Logo, Heading, Subheading, Subtitle } from "../../components/styles";
 import {
-	Wrapper,
 	Background,
-	TextWrapper,
 	DeviceWrapper,
 	DownloadButtonWrapper,
+	TextWrapper,
+	Wrapper,
 } from "./styles";
-import Radio from "../../components/Radio";
+import { Heading, Logo, Subheading, Subtitle } from "../../components/styles";
+import { Redirect, useHistory } from "react-router-dom";
+import { isCompletedResults, isValidResults } from "../../functions";
+
+import Button from "../../components/Button";
+import DeviceChooser from "../../components/DeviceChooser";
 import Grid from "../../components/Grid";
-import { useHistory, Redirect } from "react-router-dom";
 import Mockup from "../../components/Mockup";
+import Radio from "../../components/Radio";
+import React from "react";
+import Spinner from "../../components/Spinner";
+import ThemeChooser from "../../components/ThemeChooser";
+import constants from "../../constants";
+import format from "../../format";
 import theme from "../../theme";
-import { isValidResults, isCompletedResults } from "../../functions";
+import themes from "../../data/themes";
 
 export const Results = ({ results, onImageLoaded, image }) => {
 	const history = useHistory();
@@ -45,7 +48,7 @@ export const Results = ({ results, onImageLoaded, image }) => {
 	} else {
 		return image ? (
 			<Background>
-				<Wrapper>
+				<Wrapper style={{ color: "black" }}>
 					<Logo />
 					<TextWrapper>
 						<Heading>Nice one!</Heading>
@@ -58,24 +61,20 @@ export const Results = ({ results, onImageLoaded, image }) => {
 						<Mockup src={image} />
 					</DeviceWrapper>
 					<TextWrapper>
+						<Subtitle>Choose your device</Subtitle>
+
+						<DeviceChooser />
+					</TextWrapper>
+					<TextWrapper>
 						<Subtitle>Choose your theme</Subtitle>
-						<Grid columnCount={2} style={{ marginBottom: 40 }}>
-							<Radio
-								checked={selectedTheme === "sunset"}
-								onChange={() => setSelectedTheme("sunset")}
-								label="Sunset"
-								gradient="sunset"
-							/>
-							<Radio
-								checked={selectedTheme === "light"}
-								onChange={() => setSelectedTheme("light")}
-								label="Light"
-								gradient="light"
-							/>
-						</Grid>
+
+						{/* Make this state controlled */}
+						<ThemeChooser />
+					</TextWrapper>
+					<TextWrapper>
 						<DownloadButtonWrapper>
 							<span className="only-mobile">
-								<Button downArrow onClick={handleDownload}>
+								<Button dark downArrow onClick={handleDownload}>
 									Download
 								</Button>
 							</span>
@@ -84,7 +83,7 @@ export const Results = ({ results, onImageLoaded, image }) => {
 								download="RuleOfLife.png"
 								href={image}
 							>
-								<Button downArrow onClick={handleDownload}>
+								<Button dark downArrow onClick={handleDownload}>
 									Download
 								</Button>
 							</a>
