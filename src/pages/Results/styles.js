@@ -24,12 +24,13 @@ export const Wrapper = styled(DefaultWrapper)`
 `;
 
 export const TextWrapper = styled.section`
-	grid-column-start: 1;
+	grid-column: 1 / -1;
 	justify-self: center;
+	width: 100%;
+	margin-bottom: ${theme.gutter}px;
 
 	${breakpoint("lg")`
-        grid-column-start: 2;
-        grid-column-end: 2;
+		grid-column: 2 / -1;
     `}
 `;
 
@@ -41,6 +42,7 @@ export const DeviceWrapper = styled.div`
 	justify-self: center;
 
 	grid-column-start: 1;
+	grid-row: 3 / 6;
 `;
 
 export const DownloadButtonWrapper = styled.div`
