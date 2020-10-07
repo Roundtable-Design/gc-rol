@@ -1,6 +1,6 @@
-import React from "react";
+import { Arrow, DownArrow, Text, Wrapper } from "./styles";
 
-import { Wrapper, DownArrow, Text, Arrow } from "./styles";
+import React from "react";
 
 export const Button = ({
 	children: text,
@@ -8,9 +8,10 @@ export const Button = ({
 	type,
 	className,
 	downArrow,
+	...props
 }) => {
 	return (
-		<Wrapper className={className} onClick={onClick} type={type}>
+		<Wrapper className={className} onClick={onClick} type={type} {...props}>
 			<Text>{text}</Text>
 			{downArrow ? <DownArrow /> : <Arrow />}
 		</Wrapper>
