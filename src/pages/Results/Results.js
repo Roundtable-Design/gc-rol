@@ -52,7 +52,7 @@ export const Results = ({ results, onImageLoaded, image }) => {
 		return image ? (
 			<Background>
 				<Wrapper style={{ color: "black" }}>
-					<Logo />
+					<Logo dark />
 					<TextWrapper>
 						<Heading>Nice one!</Heading>
 						<Subheading center>
@@ -86,7 +86,12 @@ export const Results = ({ results, onImageLoaded, image }) => {
 					<TextWrapper>
 						<DownloadButtonWrapper>
 							<span className="only-mobile">
-								<Button dark downArrow onClick={handleDownload}>
+								<Button
+									shadow
+									dark
+									downArrow
+									onClick={handleDownload}
+								>
 									Download
 								</Button>
 							</span>
@@ -95,7 +100,12 @@ export const Results = ({ results, onImageLoaded, image }) => {
 								download="RuleOfLife.png"
 								href={image}
 							>
-								<Button dark downArrow onClick={handleDownload}>
+								<Button
+									shadow
+									dark
+									downArrow
+									onClick={handleDownload}
+								>
 									Download
 								</Button>
 							</a>
