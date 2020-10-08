@@ -1,4 +1,25 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const blink = keyframes`
+	from {
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+`;
+
+export const Logo = styled.img.attrs({
+	src: require("../../assets/logo-black.svg"),
+})`
+	width: 71px;
+	height: 54px;
+	display: inline-block;
+	animation: ${blink} 1s infinite;
+`;
 
 export const Wrapper = styled.div`
 	position: absolute;
