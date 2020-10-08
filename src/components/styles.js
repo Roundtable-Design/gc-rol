@@ -25,7 +25,9 @@ export const Wrapper = styled.main`
     `}
 `;
 
-export const Logo = styled.img.attrs({ src: require("../assets/logo.svg") })`
+export const Logo = styled.img.attrs({
+	src: require("../assets/logo-black.svg"),
+})`
 	height: 54px;
 	margin-top: 50px;
 	margin-bottom: 90px;
