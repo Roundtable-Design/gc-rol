@@ -34,7 +34,7 @@ export const Results = ({ results, onImageLoaded, image }) => {
 			let uri = await format.toImage({
 				practices: results,
 				theme: themes[selectedTheme].gradient,
-				textColor: themes[selectedTheme].textColor,
+				fgDark: themes[selectedTheme].hasOwnProperty("dark"),
 				constraints: devices[selectedDevice].constraints,
 			});
 
@@ -61,16 +61,19 @@ export const Results = ({ results, onImageLoaded, image }) => {
 						</Subheading>
 					</TextWrapper>
 					<DeviceWrapper>
-						<Mockup src={image} />
+						<Mockup
+							device={devices[selectedDevice]}
+							content={image}
+						/>
 					</DeviceWrapper>
-					{/* <TextWrapper>
+					<TextWrapper>
 						<Subtitle>Choose your device</Subtitle>
 
 						<DeviceChooser
 							onChange={(index) => setSelectedDevice(index)}
 							selected={selectedDevice}
 						/>
-					</TextWrapper> */}
+					</TextWrapper>
 					<TextWrapper>
 						<Subtitle>Choose your theme</Subtitle>
 

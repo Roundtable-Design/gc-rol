@@ -28,6 +28,7 @@ export const TextWrapper = styled.section`
 	justify-self: center;
 	width: 100%;
 	margin-bottom: ${theme.gutter}px;
+	overflow-x: scroll;
 
 	${breakpoint("lg")`
 		grid-column: 2 / -1;
@@ -35,7 +36,7 @@ export const TextWrapper = styled.section`
 `;
 
 export const DeviceWrapper = styled.div`
-	width: 223px;
+	width: 275px;
 	display: block;
 	margin: 0 auto;
 	margin-bottom: 40px;
