@@ -1,6 +1,8 @@
 import Canvas from "./canvas";
 
 const format = {
+	offsetTop: 0,
+
 	renderGradient: async (canvas, theme) => {
 		await canvas.gradient(theme);
 	},
@@ -16,18 +18,26 @@ const format = {
 		);
 	},
 
-	renderLogo: async (canvas) => {
+	renderLogo: async (canvas, fgDark) => {
+		format.offsetTop += 20;
+
 		const width = 71;
 		const height = 54;
 
+		const image = fgDark
+			? require("./assets/logo-black.png")
+			: require("./assets/logo.png");
+
 		await canvas.image(
-			require("./assets/logo.png"),
+			image,
 			canvas.canvasElement.width / (canvas.scale * 2) - width / 2,
-			20,
+			format.offsetTop,
 			width,
 			height
 			// { blendMode: "multiply" }
 		);
+
+		format.offsetTop += 55;
 	},
 
 	renderFooter: (canvas) => {
@@ -43,30 +53,29 @@ const format = {
 	},
 
 	renderPractices: (canvas, sections) => {
-		let offsetTop = 78,
-			offsetLeft = 20;
+		const offsetLeft = 20;
 
 		sections.forEach(({ title, practices }) => {
 			canvas.text(title, {
 				x: offsetLeft,
-				y: offsetTop,
+				y: format.offsetTop,
 				fontFamily: "starling, serif",
 				fontWeight: 700,
 				fontSize: 14,
 				lineHeight: 17,
 			});
 
-			offsetTop += 19;
+			format.offsetTop += 19;
 
 			practices.forEach(({ title, value }) => {
 				// Human Resources
-				canvas.hr(offsetLeft, offsetTop);
-				offsetTop += 6;
+				canvas.hr(offsetLeft, format.offsetTop);
+				format.offsetTop += 6;
 
 				// title
 				canvas.text(title, {
 					x: offsetLeft,
-					y: offsetTop,
+					y: format.offsetTop,
 					fontFamily: "neue-haas-grotesk-display, sans-serif",
 					fontWeight: 300,
 					fontSize: 22,
@@ -76,7 +85,7 @@ const format = {
 				// Value
 				canvas.text(value, {
 					x: 162,
-					y: offsetTop,
+					y: format.offsetTop,
 					maxWidth: 192,
 					fontFamily: "neue-haas-grotesk-display, sans-serif",
 					fontWeight: 500,
@@ -84,25 +93,31 @@ const format = {
 					lineHeight: 14,
 				});
 
-				offsetTop += 39;
+				format.offsetTop += 39;
 			});
 
-			offsetTop += 5;
+			format.offsetTop += 5;
 		});
 	},
 
-	toImage: async ({ practices, theme, textColor, constraints }) => {
-		const [width, height] = constraints;
+	toImage: async ({ practices, theme, fgDark, constraints }) => {
+		const { sWidth, sHeight } = constraints;
 
-		const canvas = new Canvas().init(width, height);
+		const canvas = new Canvas().init(sWidth, sHeight);
 
-		canvas.canvasElement.getContext("2d").fillStyle = textColor;
-		canvas.canvasElement.getContext("2d").strokeStyle = textColor;
+		format.offsetTop = sHeight > 670 ? 30 : 0;
+
+		canvas.canvasElement.getContext("2d").fillStyle = fgDark
+			? "#1a1a1a"
+			: "white";
+		canvas.canvasElement.getContext("2d").strokeStyle = fgDark
+			? "#1a1a1a"
+			: "white";
 
 		if (Array.isArray(theme)) await format.renderGradient(canvas, theme);
 		else await format.renderImage(canvas, theme);
 
-		await format.renderLogo(canvas);
+		await format.renderLogo(canvas, fgDark);
 
 		format.renderPractices(canvas, practices);
 
