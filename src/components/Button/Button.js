@@ -9,6 +9,7 @@ export const Button = ({
 	className,
 	downArrow,
 	dark,
+	...props
 }) => {
 	return (
 		<Wrapper
@@ -17,6 +18,7 @@ export const Button = ({
 			type={type}
 			dark={dark}
 			noAnimate={downArrow}
+			{...props}
 		>
 			<Text>{text}</Text>
 			<Arrow
