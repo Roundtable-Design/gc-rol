@@ -25,14 +25,21 @@ export const Wrapper = styled.main`
     `}
 `;
 
-export const Logo = styled.img.attrs({
-	src: require("../assets/logo-black.svg"),
-})`
+export const Logo = styled.div`
+	width: 71px;
 	height: 54px;
 	margin-top: 50px;
 	margin-bottom: 90px;
 	grid-column: 1 / -1;
 	justify-self: center;
+
+	background-image: url("${({ dark }) =>
+		dark
+			? require("../assets/logo-black.svg")
+			: require("../assets/logo.svg")}");
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
 `;
 
 export const Heading = styled.h1`
