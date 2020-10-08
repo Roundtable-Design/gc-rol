@@ -6,10 +6,10 @@ import devices from "../../data/devices";
 export const DeviceChooser = ({ selected, onChange, ...props }) => {
 	return (
 		<Wrapper {...props}>
-			{devices.map(({ title, image }, index) => {
+			{devices.map(({ icon }, index) => {
 				return (
 					<Item
-						image={image}
+						image={icon}
 						selected={index === selected}
 						onClick={() => onChange(index)}
 					/>
