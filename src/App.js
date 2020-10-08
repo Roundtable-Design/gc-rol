@@ -14,7 +14,7 @@ import { createBrowserHistory } from "history";
 import fields from "./data/fields";
 import theme from "./theme";
 
-const trackingId = "UA-165932948-1";
+const trackingId = "UA-180185241-1";
 ReactGA.initialize(trackingId); // initialize ReactGA with trackingId
 
 const history = createBrowserHistory();
