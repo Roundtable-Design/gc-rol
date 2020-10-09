@@ -61,7 +61,8 @@ export const Results = ({ results, onImageLoaded, image }) => {
 						<Heading>Nice one!</Heading>
 						<Subheading center>
 							Your new <i>at home</i> rule of life is ready to
-							download, choose a theme below and hit download
+							download, choose a theme and device below and hit
+							download
 						</Subheading>
 					</TextWrapper>
 					<DeviceWrapper>
@@ -118,20 +119,24 @@ export const Results = ({ results, onImageLoaded, image }) => {
 						</DownloadButtonWrapper>
 						<Subtitle>Next up</Subtitle>
 						<Subheading>
-							Share with your Pattern group so they can
-							practically and prayerfully contend for you
+							Share with your Digital Community/House Church so
+							they can practically and prayerfully contend for you
 						</Subheading>
 						<Subtitle>And if you wanted to...</Subtitle>
 						<Subheading>
 							Stir the conversation by sharing with others who
 							might find it helpful
 						</Subheading>
-						<Subtitle>Learn more about Pattern</Subtitle>
+						<Subtitle>
+							Learn more about Spiritual Formation
+						</Subtitle>
 						<Subheading>
 							Want to learn more about practices that shape us to
 							be with Jesus, become like him and do what he did?
 							Visit{" "}
-							<a href="https://pattern.org.uk">pattern.org.uk</a>
+							<a href="https://garden.church/resources">
+								garden.church/resources
+							</a>
 						</Subheading>
 					</TextWrapper>
 				</Wrapper>
