@@ -2,8 +2,11 @@ import styled from "styled-components";
 
 export const Gradient = styled.div`
 	width: 100%;
-	min-height: 100vh;
-	background-attachment: fixed;
+	height: 100vh;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	/* min-height: 100vh; */
+	/* background-attachment: fixed; */
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-image: url("${require("../../assets/gradient.jpg")}");
