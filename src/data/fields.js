@@ -84,26 +84,25 @@ const fields = [
 			{
 				title: "Mind",
 				body:
-					"Live a life of Prayer and communion with God: (1) Abide in God’s love and in his presence; (2) Listen for how God speaks with you and invites you to Obey; and (3) Contend for the needs and for the renewal of your community, your city and the world. How will you spend this portion of your day? ",
+					"What practices will you choose to help keep your Mind healthy?",
 				value: "",
 				placeholder:
-					"Type your answer here... e.g. Praying a Psalm, the Lord's Prayer, Breath Prayer, Listening Prayer, Intercession, etc.",
+					"Type your answer here... e.g., limiting screen time/social media/news/TV; reading more than watching; mindful prayer practices; playing music, painting, etc.",
 			},
 			{
 				title: "Body",
-				body:
-					"We long to be people who have soaked in words of Scripture.  When will you read and meditate on the Bible in order to orient your mind and heart around the living story of God's goodness and faithfulness?",
+				body: "What will you do to care for your Body?",
 				placeholder:
-					"Type your answer here... e.g. Scripture reading, daily devotional, Lectio Divina, Bible Study, etc.",
+					"Type your answer here... e.g. regular exercise, good sleep habits, being in nature, a healthy diet, limiting alcohol, etc.",
 				value: "",
 			},
 			{
 				title: "Heart",
 				body:
-					"Live a life of Prayer and communion with God: (1) Abide in God’s love and in his presence; (2) Listen for how God speaks with you and invites you to Obey; and (3) Contend for the needs and for the renewal of your community, your city and the world. How will you spend this portion of your day? ",
+					"What regular practices will help you consistently move towards emotional health and keep your Heart tender and compassionate?",
 				value: "",
 				placeholder:
-					"Type your answer here... e.g. Praying a Psalm, the Lord's Prayer, Breath Prayer, Listening Prayer, Intercession, etc.",
+					"Type your answer here... e.g., connect with a trusted friend/ loved one/spouse, journaling, serving others anonymously, scheduling daily times of reflection, etc.",
 			},
 		],
 	},
