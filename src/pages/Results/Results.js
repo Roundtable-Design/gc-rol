@@ -29,8 +29,12 @@ export const Results = ({ results, onImageLoaded, image }) => {
 	const [selectedDevice, setSelectedDevice] = React.useState(1);
 	const [selectedTheme, setSelectedTheme] = React.useState(0);
 
+	const [loaded, setLoaded] = React.useState(false);
+
 	React.useEffect(() => {
 		(async function () {
+			setLoaded(false);
+
 			let uri = await format.toImage({
 				practices: results,
 				theme: themes[selectedTheme].gradient,
@@ -61,9 +65,11 @@ export const Results = ({ results, onImageLoaded, image }) => {
 						</Subheading>
 					</TextWrapper>
 					<DeviceWrapper>
+						{!loaded && <Spinner style={{ height: "556px" }} />}
 						<Mockup
 							device={devices[selectedDevice]}
 							content={image}
+							onLoad={() => setLoaded(true)}
 						/>
 					</DeviceWrapper>
 					<TextWrapper>

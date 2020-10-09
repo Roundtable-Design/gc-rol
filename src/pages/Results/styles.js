@@ -41,6 +41,7 @@ export const DeviceWrapper = styled.div`
 	margin: 0 auto;
 	margin-bottom: 40px;
 	justify-self: center;
+	position: relative;
 
 	grid-column-start: 1;
 	grid-row: 3 / 6;
