@@ -19,14 +19,14 @@ export const Intro = () => {
 				<Logo />
 				<TextWrapper>
 					<Title>
-						"This is what my Father wants: that anyone who sees the
-						Son and trusts who he is and what he does and then
-						aligns with him will enter real life, eternal life. My
-						part is to put them on their feet alive and whole at the
-						completion of time."
+						&ldquo;This is what my Father wants: that anyone who
+						sees the Son and trusts who he is and what he does and
+						then aligns with him will enter real life, eternal life.
+						My part is to put them on their feet alive and whole at
+						the completion of time.&rdquo;
 					</Title>
 					<Subtitle borderless style={{ marginBottom: 100 }}>
-						John 6: 39-40 MSG
+						John 6: 39–40 MSG
 					</Subtitle>
 					<Button onClick={handleBegin}>Begin</Button>
 				</TextWrapper>
