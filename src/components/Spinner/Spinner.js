@@ -4,9 +4,9 @@ import Loader from "react-loader-spinner";
 import React from "react";
 import theme from "../../theme";
 
-export const Spinner = ({ title }) => {
+export const Spinner = ({ title, ...props }) => {
 	return (
-		<Wrapper>
+		<Wrapper {...props}>
 			{/* <Loader
 				type="Grid"
 				color={theme.color.black}
