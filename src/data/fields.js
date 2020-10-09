@@ -51,7 +51,7 @@ const fields = [
 				value: "Lorem ipsum dolor sit amet",
 			},
 			{
-				title: "Steward",
+				title: "Stewardship",
 				body:
 					"We Steward our whole lives as a response to the grace and privilege God has given to each of us as his children. How will you be intentional with your  Time, Resources and Money and grow as a steward in God’s kingdom?",
 				value: "Lorem ipsum dolor sit amet",
