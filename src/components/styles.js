@@ -86,7 +86,7 @@ export const Subtitle = styled.h4`
 	font-family: ${theme.font.family.sansSerif};
 	font-weight: 600;
 	font-size: 12px;
-	line-height: ${theme.gutter * 2}px;
+	line-height: ${theme.gutter * 1.3}px;
 	padding-bottom: 1px;
 	${({ borderless }) =>
 		!borderless && `border-bottom: 1px solid ${theme.color.grey}`}
