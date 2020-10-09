@@ -31,7 +31,8 @@ export const Field = React.forwardRef(
 		return (
 			<Wrapper>
 				<Title>
-					{index}. {title}
+					{index}.<span style={{ visibility: "hidden" }}>–</span>
+					{title}
 				</Title>
 				<Body>{body}</Body>
 				<Input
@@ -43,17 +44,13 @@ export const Field = React.forwardRef(
 					placeholder={placeholder}
 				/>
 				<ValidationWrapper>
-					{focused && (
-						<React.Fragment>
-							<Sub>
-								<Indicator danger={visited && invalid} />
-								<Colored danger={visited && invalid}>
-									{value.length}
-								</Colored>
-								/60 characters
-							</Sub>
-						</React.Fragment>
-					)}
+					<Sub hide={!focused}>
+						<Indicator danger={visited && invalid} />
+						<Colored danger={visited && invalid}>
+							{value.length}
+						</Colored>
+						/60 characters
+					</Sub>
 					{invalid && visited && (
 						<Sub>
 							<Colored danger>

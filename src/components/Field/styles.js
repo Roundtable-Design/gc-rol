@@ -64,6 +64,8 @@ export const Sub = styled.div`
 	line-height: 14px;
 	font-family: ${({ theme }) => theme.font.family.sansSerif};
 	margin-bottom: 0;
+
+	${({ hide }) => hide && `visibility: hidden`}
 `;
 
 export const Colored = styled.span`
