@@ -32,6 +32,7 @@ export const Item = {
 		font-size: 11px;
 		text-align: center;
 		font-weight: 500;
+		margin-bottom: 0;
 
 		visibility: ${({ selected }) => (selected ? `visible` : `hidden`)};
 	`,
