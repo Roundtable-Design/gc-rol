@@ -2,14 +2,14 @@ import { Content, Frame, Wrapper } from "./styles";
 
 import React from "react";
 
-export const Mockup = ({ onLoad, device, content, ...props }) => {
+export const Mockup = ({ loaded, onLoad, device, content, ...props }) => {
 	const {
 		constraints: { dX, dY, sWidth, dWidth, sHeight, dHeight },
 		mockup,
 	} = device;
 
 	return (
-		<Wrapper {...props}>
+		<Wrapper loaded={loaded} {...props}>
 			<Content
 				onLoad={onLoad}
 				dX={dX}

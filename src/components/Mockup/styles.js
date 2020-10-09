@@ -3,8 +3,18 @@ import styled from "styled-components";
 const outerWidth = 275;
 
 export const Wrapper = styled.div`
+	will-change: opacity, transform;
+	transition: opacity 0.3s, transform 0.3s;
+
 	width: ${outerWidth}px;
 	position: relative;
+
+	${({ loaded }) =>
+		!loaded &&
+		`
+		opacity: 0;
+		transform: scale(0.92);
+		`}
 `;
 
 export const Content = styled.img`

@@ -1,6 +1,7 @@
 import arrow from "../../assets/arrow.svg";
 import arrowBlack from "../../assets/arrow-black.svg";
 import styled from "styled-components";
+import theme from "../../theme";
 
 export const Text = styled.span`
 	font-size: 18px;
@@ -40,6 +41,7 @@ export const Wrapper = styled.button`
 	will-change: border-color;
 	outline: none;
 	padding: 0;
+	margin-bottom: ${theme.gutter}px;
 
 	${({ shadow }) =>
 		shadow &&

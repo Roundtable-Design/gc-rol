@@ -32,19 +32,23 @@ export const Results = ({ results, onImageLoaded, image }) => {
 	const [loaded, setLoaded] = React.useState(false);
 
 	React.useEffect(() => {
-		(async function () {
-			setLoaded(false);
-
-			let uri = await format.toImage({
-				practices: results,
-				theme: themes[selectedTheme].gradient,
-				fgDark: themes[selectedTheme].hasOwnProperty("dark"),
-				constraints: devices[selectedDevice].constraints,
-			});
-
-			onImageLoaded(uri);
-		})();
+		setLoaded(false);
 	}, [selectedTheme, selectedDevice]);
+
+	React.useEffect(() => {
+		if (!loaded) {
+			(async function () {
+				let uri = await format.toImage({
+					practices: results,
+					theme: themes[selectedTheme].gradient,
+					fgDark: themes[selectedTheme].hasOwnProperty("dark"),
+					constraints: devices[selectedDevice].constraints,
+				});
+
+				onImageLoaded(uri);
+			})();
+		}
+	}, [loaded]);
 
 	const handleDownload = () => {
 		history.push("/preview");
@@ -68,6 +72,7 @@ export const Results = ({ results, onImageLoaded, image }) => {
 					<DeviceWrapper>
 						{!loaded && <Spinner style={{ height: "556px" }} />}
 						<Mockup
+							loaded={loaded}
 							device={devices[selectedDevice]}
 							content={image}
 							onLoad={() => setLoaded(true)}
