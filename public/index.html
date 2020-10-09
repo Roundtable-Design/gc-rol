@@ -40,6 +40,10 @@
 				zoom: 1.25;
 			}
 
+			body.no-zoom {
+				zoom: 1;
+			}
+
 			::placeholder {
 				color: white;
 				opacity: 0.5;
@@ -60,5 +64,13 @@
 
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
-    --></body>
+	-->
+		<script>
+			if (window.location.pathname.includes("preview")) {
+				document.body.classList.add("no-zoom");
+			} else {
+				document.body.classList.remove("no-zoom");
+			}
+		</script>
+	</body>
 </html>
