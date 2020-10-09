@@ -48,6 +48,7 @@ export const DeviceWrapper = styled.div`
 `;
 
 export const DownloadButtonWrapper = styled.div`
+	padding-top: 5px;
 	margin-bottom: 40px;
 	display: flex;
 	justify-content: center;

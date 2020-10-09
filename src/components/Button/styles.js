@@ -44,10 +44,10 @@ export const Wrapper = styled.button`
 	${({ shadow }) =>
 		shadow &&
 		`
-		padding: 6px 10px;
+		padding: 4px 10px;
 		text-transform: uppercase;
 		box-sizing: border-box;
-		box-shadow: 0 3px 2px #00000030;
+		box-shadow: 0 0px 3px #00000028;
 		border: 1px solid #e5e5e5;
 
 		span {
