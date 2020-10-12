@@ -1,3 +1,4 @@
+import { ButtonWrapper, Description, SubWrapper, Title } from "./styles";
 import { Logo, Wrapper } from "../../components/styles";
 import {
 	getPractices,
@@ -9,11 +10,11 @@ import {
 
 import Background from "../../components/Background";
 import Button from "../../components/Button";
-import { ButtonWrapper } from "./styles";
 import Field from "../../components/Field";
 import React from "react";
 import { Redirect } from "react-router-dom";
 import animateScrollTo from "animated-scroll-to";
+import fields from "../../data/fields";
 import { useHistory } from "react-router-dom";
 
 const Review = ({ results = [], onResultsChange }) => {
@@ -51,24 +52,33 @@ const Review = ({ results = [], onResultsChange }) => {
 		<Background>
 			<Wrapper>
 				<Logo />
-				{getPractices(results).map(
-					({ value, body, title, placeholder }, index) => {
-						return (
-							<Field
-								onChange={(value) =>
-									handleFieldChange({ title, value })
-								}
-								value={value}
-								body={body}
-								title={title}
-								placeholder={placeholder}
-								index={index + 1}
-								key={`review-field-${index}`}
-								ref={(ref) => addFieldRef(ref)}
-							/>
-						);
-					}
-				)}
+				{fields.map(({ title, description, numbered, practices }) => (
+					<React.Fragment>
+						{title && description && (
+							<SubWrapper>
+								<Title>{title}</Title>
+								<Description>{description}</Description>
+							</SubWrapper>
+						)}
+						{practices.map(
+							({ value, body, title, placeholder }, index) => (
+								<Field
+									onChange={(value) =>
+										handleFieldChange({ title, value })
+									}
+									numbered={numbered}
+									value={value}
+									body={body}
+									title={title}
+									placeholder={placeholder}
+									index={index + 1}
+									key={`review-field-${index}`}
+									ref={(ref) => addFieldRef(ref)}
+								/>
+							)
+						)}
+					</React.Fragment>
+				))}
 				<ButtonWrapper>
 					<Button onClick={handleSubmit}>Create Rule of Life</Button>
 				</ButtonWrapper>
