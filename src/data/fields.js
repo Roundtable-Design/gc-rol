@@ -1,6 +1,7 @@
 const fields = [
 	{
 		title: "Garden Practices",
+		numbered: true,
 		practices: [
 			{
 				title: "Prayer",
