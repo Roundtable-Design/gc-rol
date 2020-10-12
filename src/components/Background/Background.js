@@ -4,8 +4,9 @@ import React from "react";
 
 export const Background = ({ children, fill }) => {
 	return (
-		<Gradient>
+		<React.Fragment>
+			<Gradient />
 			<Wrapper>{children}</Wrapper>
-		</Gradient>
+		</React.Fragment>
 	);
 };
