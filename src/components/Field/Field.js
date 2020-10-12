@@ -13,7 +13,7 @@ import React from "react";
 import { isValidField } from "../../functions";
 
 export const Field = React.forwardRef(
-	({ index, title, body, placeholder, value, onChange }, ref) => {
+	({ index, numbered, title, body, placeholder, value, onChange }, ref) => {
 		const invalid = !isValidField(value);
 		const [focused, setFocused] = React.useState(false);
 		const [visited, setVisited] = React.useState(false);
@@ -31,7 +31,12 @@ export const Field = React.forwardRef(
 		return (
 			<Wrapper>
 				<Title>
-					{index}.<span style={{ visibility: "hidden" }}>–</span>
+					{numbered && (
+						<React.Fragment>
+							{index}.
+							<span style={{ visibility: "hidden" }}>–</span>
+						</React.Fragment>
+					)}
 					{title}
 				</Title>
 				<Body>{body}</Body>
