@@ -37,16 +37,19 @@ export const Results = ({ results, onImageLoaded, image }) => {
 
 	React.useEffect(() => {
 		if (!loaded) {
-			(async function () {
-				let uri = await format.toImage({
-					practices: results,
-					theme: themes[selectedTheme].gradient,
-					fgDark: themes[selectedTheme].hasOwnProperty("dark"),
-					constraints: devices[selectedDevice].constraints,
-				});
+			// Allow loading wheel to load
+			window.setTimeout(() => {
+				(async function () {
+					let uri = await format.toImage({
+						practices: results,
+						theme: themes[selectedTheme].gradient,
+						fgDark: themes[selectedTheme].hasOwnProperty("dark"),
+						constraints: devices[selectedDevice].constraints,
+					});
 
-				onImageLoaded(uri);
-			})();
+					onImageLoaded(uri);
+				})();
+			}, 500);
 		}
 	}, [loaded]);
 
