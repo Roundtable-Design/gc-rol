@@ -2,7 +2,7 @@ import { Gradient, Wrapper } from "./styles";
 
 import React from "react";
 
-export const Background = ({ children, fill }) => {
+export const Background = ({ children }) => {
 	return (
 		<React.Fragment>
 			<Gradient />
