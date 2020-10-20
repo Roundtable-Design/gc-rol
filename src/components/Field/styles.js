@@ -22,8 +22,14 @@ export const Title = styled.h4`
 
 export const Body = styled.p`
 	font-weight: 700;
-	font-size: 12px;
-	line-height: 16px;
+
+	font-size: 15px;
+	line-height: 17.5px;
+
+	${breakpoint("lg")`
+	font-size: 13px;
+	line-height: 16.5px;
+	`}
 `;
 
 export const Input = styled.textarea`
