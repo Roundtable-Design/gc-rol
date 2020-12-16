@@ -43,6 +43,8 @@ export const Wrapper = styled.button`
 	padding: 0;
 	margin-bottom: ${theme.gutter}px;
 
+	${({ disabled }) => disabled && `opacity: 0.5;`}
+
 	${({ shadow }) =>
 		shadow &&
 		`
@@ -68,10 +70,13 @@ export const Wrapper = styled.button`
 	}
 
 	&:hover {
-		border-color: rgba(255, 255, 255, 1);
-
-		${Text} {
-			${({ noAnimate }) => !noAnimate && `margin-right: 20px;`}
-		}
+		${({ disabled }) =>
+			!disabled &&
+			`border-color: rgba(255, 255, 255, 1);
+			
+			${Text} {
+				${({ noAnimate }) => !noAnimate && `margin-right: 20px;`}
+			}
+		`}
 	}
 `;

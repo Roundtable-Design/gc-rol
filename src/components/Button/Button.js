@@ -9,6 +9,7 @@ export const Button = ({
 	className,
 	downArrow,
 	dark,
+	disabled,
 	...props
 }) => {
 	return (
@@ -18,6 +19,7 @@ export const Button = ({
 			type={type}
 			dark={dark}
 			noAnimate={downArrow}
+			disabled={disabled}
 			{...props}
 		>
 			<Text>{text}</Text>

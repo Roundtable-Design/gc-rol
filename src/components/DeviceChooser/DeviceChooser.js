@@ -9,6 +9,7 @@ export const DeviceChooser = ({ selected, onChange, ...props }) => {
 			{devices.map(({ icon }, index) => {
 				return (
 					<Item
+						key={`device-${index}`}
 						image={icon}
 						selected={index === selected}
 						onClick={() => onChange(index)}

@@ -1,5 +1,6 @@
 import { Route, Router, Switch } from "react-router-dom";
 
+import EmailCapture from "./pages/EmailCapture";
 import FontFaceObserver from "fontfaceobserver";
 import Intro from "./pages/Intro";
 import Preview from "./pages/Preview";
@@ -80,15 +81,11 @@ export default function App() {
 								/>
 							)}
 						/>
-						{/* <Route
-							path="/start"
-							render={() => (
-								<Start
-									results={results}
-									onResultsChange={handleResultsChange}
-								/>
-							)}
-						/> */}
+						<Route
+							exact
+							path="/email"
+							render={() => <EmailCapture />}
+						/>
 						<Route
 							path="/preview"
 							render={() => <Preview image={image} />}

@@ -8,18 +8,14 @@ export const ThemeChooser = ({ selected, onChange, ...props }) => {
 		<Wrapper {...props}>
 			{themes.map(({ title, thumb, image }, index) => {
 				return (
-					<React.Fragment>
+					<React.Fragment key={`theme-${index}`}>
 						<Item.Outer
-							key={`theme-choice-tn-${index}`}
 							onClick={() => onChange(index)}
 							selected={index === selected}
 						>
 							<Item.Inner thumb={thumb} />
 						</Item.Outer>
-						<Item.Text
-							key={`theme-choice-text-${index}`}
-							selected={index === selected}
-						>
+						<Item.Text selected={index === selected}>
 							{title}
 						</Item.Text>
 					</React.Fragment>
