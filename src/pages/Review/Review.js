@@ -1,4 +1,5 @@
 import { ButtonWrapper, Description, SubWrapper, Title } from "./styles";
+import { Colored, Indicator, Sub } from "../../components/Field/styles";
 import { Logo, Wrapper } from "../../components/styles";
 import {
 	getPractices,
@@ -139,6 +140,16 @@ const Review = ({ results = [], onResultsChange }) => {
 									>
 										Create Rule of Life
 									</Button>
+
+									<Sub hide={status !== "error"}>
+										<Indicator danger />
+										<Colored
+											danger
+											dangerouslySetInnerHTML={{
+												__html: message,
+											}}
+										/>
+									</Sub>
 								</React.Fragment>
 							);
 						}}
