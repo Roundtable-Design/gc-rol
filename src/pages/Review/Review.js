@@ -1,4 +1,10 @@
-import { ButtonWrapper, Description, SubWrapper, Title } from "./styles";
+import {
+	ButtonWrapper,
+	Description,
+	Paragraph,
+	SubWrapper,
+	Title,
+} from "./styles";
 import { Colored, Indicator, Sub } from "../../components/Field/styles";
 import { Logo, Wrapper } from "../../components/styles";
 import {
@@ -68,6 +74,26 @@ const Review = ({ results = [], onResultsChange }) => {
 		<Background>
 			<Wrapper>
 				<Logo />
+				<SubWrapper>
+					<Paragraph>
+						Welcome to the Garden Rule of Life generator. This is a
+						flexible tool designed to help you on the simple path of
+						discipleship.
+						<br />
+						<br />
+						Below you will find twelve practices that fall under
+						four spheres: life with God, life with others, work
+						life, and soul care. Respond to each corresponding
+						prompt with a simple way you want to engage with each
+						practice. When you're done, you will be prompted to the
+						next page where you will be able to save and download
+						your rule.
+						<br />
+						<br />
+						Remember, this is all a part of the easy yoke of Jesus,
+						so go through this prayerfully and lightly.
+					</Paragraph>
+				</SubWrapper>
 				{fields.map(
 					({ title, description, numbered, practices }, index) => (
 						<React.Fragment key={`field-${index}`}>
@@ -117,7 +143,7 @@ const Review = ({ results = [], onResultsChange }) => {
 				<ButtonWrapper>
 					<MailchimpSubscribe
 						url={
-							"https://round-table.us3.list-manage.com/subscribe/post?u=deab99e3508f13360b7ea5ae0&amp;id=89eab3078b"
+							"//church.us8.list-manage.com/subscribe/post?u=59f5aadb0bf1ba7a3deaec063&amp;id=9c5ef83e83"
 						}
 						render={({ subscribe, status, message }) => {
 							console.log({ status, message });

@@ -19,6 +19,18 @@ export const ButtonWrapper = styled.div`
     `}
 `;
 
+export const Paragraph = styled.p`
+	font-weight: 700;
+
+	font-size: 15px;
+	line-height: 17.5px;
+
+	${breakpoint("lg")`
+font-size: 13px;
+line-height: 16.5px;
+`}
+`;
+
 export const SubWrapper = styled.div`
 	grid-column: 1 / -1;
 	${breakpoint("lg")`
