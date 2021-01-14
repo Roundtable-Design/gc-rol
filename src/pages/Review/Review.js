@@ -74,7 +74,7 @@ const Review = ({ results = [], onResultsChange }) => {
 		<Background>
 			<Wrapper>
 				<Logo />
-				<SubWrapper>
+				<SubWrapper style={{ marginBottom: 100 }}>
 					<Paragraph>
 						Welcome to the Garden Rule of Life generator. This is a
 						flexible tool designed to help you on the simple path of
