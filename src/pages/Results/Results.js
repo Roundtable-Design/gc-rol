@@ -125,6 +125,12 @@ export const Results = ({ results, onImageLoaded, image }) => {
 								</Button>
 							</a>
 						</DownloadButtonWrapper>
+						<Subtitle>On mobile?</Subtitle>
+						<Subheading>
+							Hit download, save the image to your phone by
+							holding your finger down on the popped up image.
+							Save to photos and enjoy!
+						</Subheading>
 						<Subtitle>Next up</Subtitle>
 						<Subheading>
 							Share with your Digital Community/House Church so
@@ -142,8 +148,8 @@ export const Results = ({ results, onImageLoaded, image }) => {
 							Want to learn more about practices that shape us to
 							be with Jesus, become like him and do what he did?
 							Visit{" "}
-							<a href="https://garden.church/resources">
-								garden.church/resources
+							<a href="https://garden.church/ruleoflife">
+								garden.church/ruleoflife
 							</a>
 						</Subheading>
 					</TextWrapper>
