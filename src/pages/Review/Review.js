@@ -42,12 +42,12 @@ const Review = ({ results = [], onResultsChange }) => {
 	};
 
 	const handleSubmit = async () => {
-		if (!emailValid) {
-			await animateScrollTo(emailRef.current);
-			emailRef.current.focus();
-		}
+		// if (!emailValid) {
+		// 	await animateScrollTo(emailRef.current);
+		// 	emailRef.current.focus();
+		// }
 
-		if (isValidResults(results) && emailValid) {
+		if (isValidResults(results) /*&& emailValid*/) {
 			if (isCompletedResults(results)) {
 				history.push("/results");
 			} else {
@@ -148,7 +148,7 @@ const Review = ({ results = [], onResultsChange }) => {
 						render={({ subscribe, status, message }) => {
 							console.log({ status, message });
 
-							if (status === "success") {
+							if (status) {
 								handleSubmit();
 							}
 
@@ -167,7 +167,7 @@ const Review = ({ results = [], onResultsChange }) => {
 										Create Rule of Life
 									</Button>
 
-									<Sub hide={status !== "error"}>
+									{/* <Sub hide={status !== "error"}>
 										<Indicator danger />
 										<Colored
 											danger
@@ -175,7 +175,7 @@ const Review = ({ results = [], onResultsChange }) => {
 												__html: message,
 											}}
 										/>
-									</Sub>
+									</Sub> */}
 								</React.Fragment>
 							);
 						}}
