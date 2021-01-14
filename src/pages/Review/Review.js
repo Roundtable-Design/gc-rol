@@ -42,12 +42,9 @@ const Review = ({ results = [], onResultsChange }) => {
 	};
 
 	const handleSubmit = async () => {
-		// if (!emailValid) {
-		// 	await animateScrollTo(emailRef.current);
-		// 	emailRef.current.focus();
-		// }
+		// Save email to localStorage too
 
-		if (isValidResults(results) /*&& emailValid*/) {
+		if (isValidResults(results)) {
 			if (isCompletedResults(results)) {
 				history.push("/results");
 			} else {
@@ -166,16 +163,6 @@ const Review = ({ results = [], onResultsChange }) => {
 									>
 										Create Rule of Life
 									</Button>
-
-									{/* <Sub hide={status !== "error"}>
-										<Indicator danger />
-										<Colored
-											danger
-											dangerouslySetInnerHTML={{
-												__html: message,
-											}}
-										/>
-									</Sub> */}
 								</React.Fragment>
 							);
 						}}
