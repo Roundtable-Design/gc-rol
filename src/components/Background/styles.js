@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-export const Gradient = styled.div`
+export const Gradient = styled.div.attrs({ id: "background-gradient" })`
 	width: 100%;
-	height: 100%;
+	height: calc(100% + 100px);
 	/* min-height: 100vh; */
 	/* background-attachment: fixed; */
 	background-repeat: no-repeat;
@@ -14,6 +14,10 @@ export const Gradient = styled.div`
 	bottom: 0;
 	right: 0;
 	z-index: -5;
+	will-change: transform;
+	/* transition: 0.3s transform; */
+
+	/* transform: translateY(${({ offsetY }) => offsetY}px); */
 `;
 
 export const Wrapper = styled.div`
