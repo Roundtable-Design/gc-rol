@@ -3,10 +3,40 @@ import arrowBlack from "../../assets/arrow-black.svg";
 import styled from "styled-components";
 import theme from "../../theme";
 
+export const Filled = {
+	Wrapper: styled.button`
+		appearance: none;
+		border: none;
+		background: #fefefe;
+		box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+		border-radius: 2px;
+		padding: 7px 32px;
+
+		> * {
+			display: inline-block;
+			vertical-align: middle;
+		}
+	`,
+	Text: styled.span`
+		font-style: normal;
+		font-weight: bold;
+		font-size: 14px;
+		line-height: 30px;
+		letter-spacing: 0.03em;
+		text-transform: uppercase;
+		color: #2e2e2e;
+	`,
+	Icon: styled.img`
+		margin-left: 12px;
+		object-fit: contain;
+		width: 11px;
+		height: 13px;
+	`,
+};
+
 export const Text = styled.span`
 	font-size: 18px;
 	line-height: 30px;
-	font-family: "neue-haas-grotesk-display", sans-serif;
 	font-weight: 600;
 	margin-right: 10px;
 	will-change: margin-right;
