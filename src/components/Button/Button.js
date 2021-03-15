@@ -1,4 +1,4 @@
-import { Arrow, DownArrow, Text, Wrapper } from "./styles";
+import { Arrow, DownArrow, Filled, Text, Wrapper } from "./styles";
 
 import React from "react";
 
@@ -31,3 +31,10 @@ export const Button = ({
 		</Wrapper>
 	);
 };
+
+Button.Filled = ({ children, icon, ...props }) => (
+	<Filled.Wrapper {...props}>
+		<Filled.Text>{children}</Filled.Text>
+		<Filled.Icon src={icon} />
+	</Filled.Wrapper>
+);
