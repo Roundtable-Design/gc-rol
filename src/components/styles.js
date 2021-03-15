@@ -57,8 +57,8 @@ export const Heading = styled.h1`
 export const Subheading = styled.h3`
 	${lightSansSerif}
 	font-weight: 300;
-	font-size: 24px;
-	line-height: ${theme.gutter * 2}px;
+	font-size: 23px;
+	line-height: 29px;
 	text-align: ${({ center }) => (center ? "center" : "left")};
 
 	${breakpoint("lg")`
