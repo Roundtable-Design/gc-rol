@@ -33,6 +33,13 @@ const Review = ({ results = [], onResultsChange }) => {
 	const [email, setEmail] = React.useState("");
 	const [emailValid, setEmailValid] = React.useState();
 
+	React.useEffect(() => {
+		if (window.localStorage) {
+			let email = localStorage.getItem("rol-email");
+			if (email) setEmail(email);
+		}
+	}, []);
+
 	const addFieldRef = (ref) => {
 		if (ref && !fieldRefs.includes(ref)) {
 			let refs = [...fieldRefs];
@@ -41,11 +48,19 @@ const Review = ({ results = [], onResultsChange }) => {
 		}
 	};
 
-	const handleSubmit = async () => {
-		// Save email to localStorage too
+	const saveFieldsToLocalStorage = (fields) => {
+		if (window.localStorage) {
+			localStorage.setItem("rol-fields", JSON.stringify(fields));
+			localStorage.setItem("rol-email", email);
+		}
+	};
 
+	const handleSubmit = async () => {
 		if (isValidResults(results)) {
 			if (isCompletedResults(results)) {
+				console.log({ results });
+
+				saveFieldsToLocalStorage(results);
 				history.push("/results");
 			} else {
 				const field = fieldRefs.find(
@@ -63,7 +78,10 @@ const Review = ({ results = [], onResultsChange }) => {
 	};
 
 	const handleFieldChange = (field) => {
+		console.log({ results, field });
+
 		const updatedResults = setField(results, field);
+
 		onResultsChange(updatedResults);
 	};
 
@@ -91,7 +109,7 @@ const Review = ({ results = [], onResultsChange }) => {
 						so go through this prayerfully and lightly.
 					</Paragraph>
 				</SubWrapper>
-				{fields.map(
+				{results.map(
 					({ title, description, numbered, practices }, index) => (
 						<React.Fragment key={`field-${index}`}>
 							{title && description && (
@@ -143,9 +161,8 @@ const Review = ({ results = [], onResultsChange }) => {
 							"//church.us8.list-manage.com/subscribe/post?u=59f5aadb0bf1ba7a3deaec063&amp;id=9c5ef83e83"
 						}
 						render={({ subscribe, status, message }) => {
-							console.log({ status, message });
-
 							if (status) {
+								console.log({ status, message });
 								handleSubmit();
 							}
 
