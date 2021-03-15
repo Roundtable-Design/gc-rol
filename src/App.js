@@ -26,13 +26,24 @@ history.listen((location) => {
 
 export default function App() {
 	const [fontsLoaded, setFontsLoaded] = React.useState(false);
-	const [results, setResults] = React.useState(fields);
+	const [results, setResults] = React.useState([]);
 	const [image, setImage] = React.useState(null);
 	const [error, setError] = React.useState(null);
 
+	// Check if this is happening properly
 	const handleResultsChange = (updatedResults) => setResults(updatedResults);
 
 	React.useEffect(() => {
+		if (window.localStorage && window.localStorage.getItem("rol-fields")) {
+			let results = localStorage.getItem("rol-fields");
+
+			console.log("Fields from localStorage", JSON.parse(results));
+
+			if (results) setResults(JSON.parse(results));
+		} else {
+			setResults(fields);
+		}
+
 		(async function () {
 			const timeout = 7500;
 			const fonts = [
