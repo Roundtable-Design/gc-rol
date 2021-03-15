@@ -8,7 +8,7 @@ const breakpoint = createBreakpoint(theme.breakpoints);
 export const Background = styled.div`
 	display: flex;
 	justify-content: center;
-	background-color: ${theme.color.white};
+	background-color: #f4f4f4;
 `;
 
 export const Wrapper = styled(DefaultWrapper)`
@@ -47,8 +47,9 @@ export const DeviceWrapper = styled.div`
 	grid-row: 3 / 6;
 `;
 
-export const DownloadButtonWrapper = styled.div`
+export const ButtonWrapper = styled.div`
 	padding-top: 5px;
+	margin-top: -32px;
 	margin-bottom: 40px;
 	display: flex;
 	justify-content: center;
