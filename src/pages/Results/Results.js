@@ -1,7 +1,7 @@
 import {
 	Background,
+	ButtonWrapper,
 	DeviceWrapper,
-	DownloadButtonWrapper,
 	TextWrapper,
 	Wrapper,
 } from "./styles";
@@ -10,6 +10,7 @@ import { Redirect, useHistory } from "react-router-dom";
 import { isCompletedResults, isValidResults } from "../../functions";
 
 import Button from "../../components/Button";
+import { CopyLink } from "../../components/CopyLink/CopyLink";
 import DeviceChooser from "../../components/DeviceChooser";
 import Grid from "../../components/Grid";
 import Mockup from "../../components/Mockup";
@@ -99,43 +100,75 @@ export const Results = ({ results, onImageLoaded, image }) => {
 						/>
 					</TextWrapper>
 					<TextWrapper>
-						<DownloadButtonWrapper>
+						<Subheading>
+							Are you on your mobile? If so, hit download, save
+							the image to your phone by holding your finger down
+							on the popped up image. Save to photos and enjoy!
+						</Subheading>
+						<ButtonWrapper>
 							<span className="only-mobile">
-								<Button
+								{/* <Button
 									shadow
 									dark
 									downArrow
 									onClick={handleDownload}
 								>
 									Download
-								</Button>
+								</Button> */}
+								<Button.Filled
+									onClick={handleDownload}
+									icon={require("../../assets/download-arrow.svg")}
+								>
+									Download
+								</Button.Filled>
 							</span>
 							<a
 								className="only-desktop"
 								download="RuleOfLife.png"
 								href={image}
 							>
-								<Button
+								{/* <Button
 									shadow
 									dark
 									downArrow
 									onClick={handleDownload}
 								>
 									Download
-								</Button>
+								</Button> */}
+								<Button.Filled
+									onClick={handleDownload}
+									icon={require("../../assets/download-arrow.svg")}
+								>
+									Download
+								</Button.Filled>
 							</a>
-						</DownloadButtonWrapper>
-						<Subtitle>On mobile?</Subtitle>
+						</ButtonWrapper>
+
+						<Subtitle>Printed version</Subtitle>
+
 						<Subheading>
+							Click print and stick your rule of life on your
+							fridge, door or by your bed as a reminder of
+							rhythmns
+						</Subheading>
+						<ButtonWrapper>
+							<Button.Filled
+								icon={require("../../assets/print-version.svg")}
+							>
+								Print Version
+							</Button.Filled>
+						</ButtonWrapper>
+						{/* <Subtitle>Save your Rule of Life</Subtitle>
+						<CopyLink
+							link={
+								"https://rule.garden.church/results/2435n3rt24tlk32t"
+							}
+						/> */}
+						{/* <Subheading>
 							Hit download, save the image to your phone by
 							holding your finger down on the popped up image.
 							Save to photos and enjoy!
-						</Subheading>
-						<Subtitle>Next up</Subtitle>
-						<Subheading>
-							Share with your Digital Community/House Church so
-							they can practically and prayerfully contend for you
-						</Subheading>
+						</Subheading> */}
 						<Subtitle>And if you wanted to...</Subtitle>
 						<Subheading>
 							Stir the conversation by sharing with others who
