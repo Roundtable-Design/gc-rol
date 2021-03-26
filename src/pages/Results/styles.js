@@ -5,6 +5,19 @@ import theme from "../../theme";
 
 const breakpoint = createBreakpoint(theme.breakpoints);
 
+export const HTMLPrint = styled.html`
+	box-sizing: border-box;
+	size: 161.925mm 209.55mm;
+                    margin: 0;
+`;
+
+export const HTMLHead = styled.head`
+	
+`;
+export const HTMLBody = styled.body`
+	box-sizing: border-box;
+`;
+
 export const Background = styled.div`
 	display: flex;
 	justify-content: center;

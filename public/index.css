@@ -1,0 +1,103 @@
+    *{
+		box-sizing: border-box;
+	}
+
+	@media print {
+		html, body {
+			width: 161.925mm;
+			height: 209.55mm;
+		}
+		@page {
+			size: 161.925mm 209.55mm !important;
+			margin: 0 !important;
+		}
+	}
+	
+	body{
+		width: 100%;
+		height: 100%;
+		margin: 0;
+		padding: 0;
+	}
+	h5{
+		margin: 0;
+		padding: 0; 
+	}
+	.module{
+		width: 100%;
+		margin: 0;
+		padding: 0;
+	}
+	.moduleTitle{
+		height: 4.77mm;
+		width: 136.525mm;
+		font-family: Times;
+		font-style: italic;
+		font-weight: bold;
+		font-size: 4.23mm;
+		line-height: 4.77mm;
+
+		color: #000000;
+		margin: 1.33mm auto;
+	}
+	table{
+		width: 136.525mm; 
+		table-layout: fixed;
+		border-spacing: 0;
+		margin: 0 auto;
+	}
+	tr, td{
+		width: 100%;
+		border-top: 0.067mm solid rgba(0, 0, 0, 0.65);
+	}
+	tr{
+		height: 7.15mm;
+		padding-bottom:2.12mm;
+	}
+	td{
+		height: 9.53mm;
+		vertical-align:top;
+		overflow: hidden;
+		/* white-space: nowrap; */
+		/* text-overflow: ellipsis; */
+	}
+	.title{
+		width: 37.56mm;
+		height: 7.15mm;
+
+		font-family: "neue-haas-grotesk-display", sans-serif;
+		font-style: normal;
+		font-weight: 300;
+		font-size: 6.35mm;
+		line-height: 7.15mm;
+
+		padding-bottom: 4mm;
+		color: #000000;
+	}
+	.description{
+		width: 98.96mm;
+		height: 9.53mm;
+		overflow: hidden;
+
+		font-family: "neue-haas-grotesk-display", sans-serif;
+		font-style: normal;
+		font-weight: 500;
+		font-size: 3.71mm;
+		line-height: 4.77mm;
+		color: #000000;
+
+		padding: 0.53mm 0;
+	}
+	img{
+		/* max-width: 17.4625mm;
+		max-height: 17.4625mm; */
+		display: block; 
+		margin: 0 auto;
+		fill:black;
+
+	}
+	.logo{
+		width: 100%;
+		padding-bottom: 15.35mm;
+		padding-top: 17.4625mm;
+	}
