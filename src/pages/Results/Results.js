@@ -20,7 +20,9 @@ import Spinner from "../../components/Spinner";
 import ThemeChooser from "../../components/ThemeChooser";
 import constants from "../../constants";
 import devices from "../../data/devices";
+import flattenDeep from "lodash.flattendeep";
 import format from "../../format";
+import queryString from "query-string";
 import theme from "../../theme";
 import themes from "../../data/themes";
 
@@ -152,11 +154,26 @@ export const Results = ({ results, onImageLoaded, image }) => {
 							rhythmns
 						</Subheading>
 						<ButtonWrapper>
-							<Button.Filled
-								icon={require("../../assets/print-version.svg")}
+							<a
+								href={`http://18.130.118.168:3000/poster?${queryString.stringify(
+									{
+										data: flattenDeep(
+											results.map(({ practices }) =>
+												practices.map(({ value }) =>
+													encodeURI(value)
+												)
+											)
+										),
+									}
+								)}`}
 							>
-								Print Version
-							</Button.Filled>
+								{" "}
+								<Button.Filled
+									icon={require("../../assets/print-version.svg")}
+								>
+									Print Version
+								</Button.Filled>
+							</a>
 						</ButtonWrapper>
 						{/* <Subtitle>Save your Rule of Life</Subtitle>
 						<CopyLink
