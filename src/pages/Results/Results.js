@@ -6,6 +6,7 @@ import {
 	Wrapper,
 } from "./styles";
 import { Heading, Logo, Subheading, Subtitle } from "../../components/styles";
+// import PrintProvider, { NoPrint, Print } from "react-easy-print";
 import { Redirect, useHistory } from "react-router-dom";
 import { isCompletedResults, isValidResults } from "../../functions";
 
@@ -22,9 +23,19 @@ import constants from "../../constants";
 import devices from "../../data/devices";
 import flattenDeep from "lodash.flattendeep";
 import format from "../../format";
+// import loadStyles from "load-styles";
 import queryString from "query-string";
 import theme from "../../theme";
 import themes from "../../data/themes";
+
+// loadStyles(
+// 	"#foo {" +
+// 		"  width: 161.925mm;" +
+// 		"  height: 209.55mm;" +
+// 		"  size: 161.925mm 209.55mm;" +
+// 		"  margin: 0;" +
+// 		"}"
+// );
 
 export const Results = ({ results, onImageLoaded, image }) => {
 	const history = useHistory();
@@ -37,6 +48,10 @@ export const Results = ({ results, onImageLoaded, image }) => {
 	React.useEffect(() => {
 		setLoaded(false);
 	}, [selectedTheme, selectedDevice]);
+
+	const printData = JSON.parse(localStorage.getItem("rol-fields"));
+	const [GP, setGP] = React.useState();
+	const [WP, setWP] = React.useState();
 
 	React.useEffect(() => {
 		if (!loaded) {
@@ -53,11 +68,26 @@ export const Results = ({ results, onImageLoaded, image }) => {
 					onImageLoaded(uri);
 				})();
 			}, 500);
+
+			let GP = printData[0].practices;
+			setGP(GP);
+			let WP = printData[1].practices;
+			setWP(WP);
 		}
 	}, [loaded]);
 
 	const handleDownload = () => {
 		history.push("/preview");
+	};
+
+	// const GP = alert(printData[0]);
+	// console.log(printData);
+	// console.log(GP);
+
+	const handlePrint = () => {
+		// window.document.body.classList.add("no-zoom");
+		window.print();
+		// window.location.reload();
 	};
 
 	if (!isValidResults(results) || !isCompletedResults(results)) {
@@ -110,13 +140,13 @@ export const Results = ({ results, onImageLoaded, image }) => {
 						<ButtonWrapper>
 							<span className="only-mobile">
 								{/* <Button
-									shadow
-									dark
-									downArrow
-									onClick={handleDownload}
-								>
-									Download
-								</Button> */}
+										shadow
+										dark
+										downArrow
+										onClick={handleDownload}
+									>
+										Download
+									</Button> */}
 								<Button.Filled
 									onClick={handleDownload}
 									icon={require("../../assets/download-arrow.svg")}
@@ -130,13 +160,13 @@ export const Results = ({ results, onImageLoaded, image }) => {
 								href={image}
 							>
 								{/* <Button
-									shadow
-									dark
-									downArrow
-									onClick={handleDownload}
-								>
-									Download
-								</Button> */}
+										shadow
+										dark
+										downArrow
+										onClick={handleDownload}
+									>
+										Download
+									</Button> */}
 								<Button.Filled
 									onClick={handleDownload}
 									icon={require("../../assets/download-arrow.svg")}
@@ -144,6 +174,22 @@ export const Results = ({ results, onImageLoaded, image }) => {
 									Download
 								</Button.Filled>
 							</a>
+						</ButtonWrapper>
+
+						<Subtitle>Printed version</Subtitle>
+
+						<Subheading>
+							Click print and stick your rule of life on your
+							fridge, door or by your bed as a reminder of
+							rhythmns
+						</Subheading>
+						<ButtonWrapper>
+							<Button.Filled
+								onClick={handlePrint}
+								icon={require("../../assets/print-version.svg")}
+							>
+								Print Version
+							</Button.Filled>
 						</ButtonWrapper>
 
 						<Subtitle>Printed version</Subtitle>
