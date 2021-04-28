@@ -184,22 +184,6 @@ export const Results = ({ results, onImageLoaded, image }) => {
 							rhythmns
 						</Subheading>
 						<ButtonWrapper>
-							<Button.Filled
-								onClick={handlePrint}
-								icon={require("../../assets/print-version.svg")}
-							>
-								Print Version
-							</Button.Filled>
-						</ButtonWrapper>
-
-						<Subtitle>Printed version</Subtitle>
-
-						<Subheading>
-							Click print and stick your rule of life on your
-							fridge, door or by your bed as a reminder of
-							rhythmns
-						</Subheading>
-						<ButtonWrapper>
 							<a
 								href={`http://18.130.118.168:3000/poster?${queryString.stringify(
 									{
