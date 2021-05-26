@@ -78,7 +78,7 @@ const fields = [
 		],
 	},
 	{
-		title: "Personal Practices",
+		title: "Soul Care",
 		description:
 			"People are complex and uniquely wired. As we learn to follow Jesus we must consider the various aspects of who we are (Mind, Body, and Heart) and how we are uniquely invited to journey towards wholeness in.",
 		practices: [
