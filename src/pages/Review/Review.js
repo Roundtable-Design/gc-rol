@@ -114,8 +114,10 @@ const Review = ({ results = [], onResultsChange }) => {
 						<React.Fragment key={`field-${index}`}>
 							{title && description && (
 								<SubWrapper>
-									<Title>{title}</Title>
-									<Description>{description}</Description>
+									<Title>{fields[index].title}</Title>
+									<Description>
+										{fields[index].description}
+									</Description>
 								</SubWrapper>
 							)}
 							{practices.map(
